@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Home - MyApp{% endblock %}
+
+{% block content %}
+<div style="text-align:center; max-width:800px;">
+    <h1 style="color:#4b6cb7; font-size:2.5rem; margin-bottom:20px;">Welcome to MyApp!</h1>
+    <p style="font-size:1.2rem; margin-bottom:30px;">
+        Discover amazing features and stay organized with ease.
+    </p>
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+        {% if user.is_authenticated %}
+            <a href="{% url 'main' %}" style="padding:15px 25px; background:#4b6cb7; color:white; border-radius:8px; font-weight:600; text-decoration:none;">Get Started</a>
+        {% else %}
+            <a href="{% url 'register' %}" style="padding:15px 25px; background:#4b6cb7; color:white; border-radius:8px; font-weight:600; text-decoration:none;">Get Started</a>
+        {% endif %}
+        <a href="{% url 'about' %}" style="padding:15px 25px; border:2px solid #4b6cb7; color:#4b6cb7; border-radius:8px; font-weight:600; text-decoration:none;">Learn More</a>
+    </div>
+</div>
+{% endblock %}

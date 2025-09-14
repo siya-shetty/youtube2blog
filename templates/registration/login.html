@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Login</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+
+        <label for="id_username">Email</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+            <div class="error">{{ form.username.errors.0 }}</div>
+        {% endif %}
+
+        <label for="id_password">Password</label>
+        <div class="password-wrapper">
+            {{ form.password }}
+            <span class="toggle-password" onclick="togglePassword('id_password')">👁️</span>
+        </div>
+        {% if form.password.errors %}
+            <div class="error">{{ form.password.errors.0 }}</div>
+        {% endif %}
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>
+        Don't have an account? <a href="{% url 'register' %}">Sign up here</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function togglePassword(fieldId) {
+    const field = document.getElementById(fieldId);
+    field.type = field.type === 'password' ? 'text' : 'password';
+}
+</script>
+{% endblock %}

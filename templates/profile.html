@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Profile - MyApp{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 600px; margin: auto; padding: 20px;">
+    <h2>Welcome, {{ user.username }}</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <div style="margin-bottom: 20px;">
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Date Joined:</strong> {{ user.date_joined|date:"F j, Y" }}</p>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h3>Saved Posts / History</h3>
+        {% if saved_posts %}
+            <ul>
+                {% for post in saved_posts %}
+                    <li>{{ post }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No saved posts yet.</p>
+        {% endif %}
+    </div>
+
+    <div style="margin-top: 20px; text-align: center;">
+        <a href="{% url 'main' %}">
+            <button style="width: 100%; background-color: #4b6cb7; color: white; padding: 10px; border: none; border-radius: 5px;">
+                Go to App
+            </button>
+        </a>
+    </div>
+</div>
+{% endblock %}

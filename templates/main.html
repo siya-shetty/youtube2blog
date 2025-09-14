@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Main - MyApp{% endblock %}
+
+{% block content %}
+<div style="max-width:800px; width:100%; text-align:center;">
+    <h1 style="color:#4b6cb7; margin-bottom:20px;">Generate Your Blog</h1>
+    <p style="font-size:1.1rem; margin-bottom:30px;">
+        Enter a YouTube URL and create an instant blog post based on the video content.
+    </p>
+
+    <div class="card" style="padding:30px;">
+        <form method="POST" action="{% url 'generate_blog' %}">
+            {% csrf_token %}
+            <label for="youtube_url">YouTube URL</label>
+            <input type="url" id="youtube_url" name="youtube_url" placeholder="https://www.youtube.com/..." required>
+            
+            <button type="submit" style="margin-top:15px;">Generate Blog</button>
+        </form>
+    </div>
+
+    {% if blog %}
+        <div class="card" style="margin-top:30px; padding:25px; text-align:left;">
+            <h2 style="margin-bottom:15px; color:#4b6cb7;">Generated Blog</h2>
+            <p>{{ blog }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

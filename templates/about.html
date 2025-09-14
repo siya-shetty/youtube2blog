@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}About - MyApp{% endblock %}
+
+{% block content %}
+<div style="max-width:900px; text-align:center;">
+    <h1 style="color:#4b6cb7; font-size:2.2rem; margin-bottom:20px;">About MyApp</h1>
+    <p style="font-size:1.1rem; margin-bottom:30px;">
+        MyApp helps you manage your tasks, projects, and workflows efficiently with a simple and elegant interface.
+    </p>
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px;">
+        <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); width:250px;">
+            <h3 style="color:#4b6cb7;">Feature 1</h3>
+            <p>Track your tasks easily and stay productive every day.</p>
+        </div>
+        <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); width:250px;">
+            <h3 style="color:#4b6cb7;">Feature 2</h3>
+            <p>Organize projects with simplicity and clarity for your team.</p>
+        </div>
+        <div style="background:white; padding:20px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); width:250px;">
+            <h3 style="color:#4b6cb7;">Feature 3</h3>
+            <p>Seamlessly access your data from anywhere, anytime.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
